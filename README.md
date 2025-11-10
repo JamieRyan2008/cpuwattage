@@ -1,9 +1,3 @@
-/ | _ | | | | \ \ / / | || | __ _ __ _ ___
-| | | |) | | | | \ \ /\ / / | __| __/ _ |/ ` |/ _
-| |__| __/| || | \ V V / (| | || || (| | (| | /
-_|| _/ _/_/ _,|_|__,|__, |_|
-|___/
-
 A simple **Bash-based CLI tool** to monitor the **CPU package power (in Watts)** in real-time on Linux. Ideal for desktops or servers with Intel CPUs that support **RAPL** (e.g., i7-7700K).  
 
 ---
