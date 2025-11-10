@@ -36,5 +36,5 @@ while true; do
   wh_estimated=\$(echo \"scale=6; \$total_joule/3600\" | bc)
 
   # Live-Update in einer Zeile
-  echo -ne \"\r\$(date +'%H:%M:%S')  \$watts W | Total: \$wh_estimated Wh\"
+  echo -ne \"\r\$(date +'%H:%M:%S') | \$watts W | Total: \$wh_estimated Wh\"
 done"
