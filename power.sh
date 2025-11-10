@@ -1,5 +1,5 @@
 #!/bin/bash
-# cpu_power.sh - Live CPU Wattage Monitoring
+# CPU Wattage - Live CPU Wattage CLI Tool
 
 INTERVAL=2
 RAPL_PATH="/sys/class/powercap/intel-rapl:0/energy_uj"
@@ -21,11 +21,20 @@ fi
 
 # Messschleife mit INTERVAL innerhalb der sudo-shell
 sudo bash -c "INTERVAL=$INTERVAL; LC_NUMERIC=C
+ENERGY_START=\$(cat $RAPL_PATH)
+
 while true; do
   a=\$(cat $RAPL_PATH)
   sleep \$INTERVAL
   b=\$(cat $RAPL_PATH)
+  
+  # Aktuelle Leistung in Watt
   watts=\$(echo \"scale=2; (\$b - \$a)/\$((INTERVAL*1000000))\" | bc)
-  echo \"\$(date +'%H:%M:%S')  \$watts W\"
-done"
 
+  # Kumulierte Energie in Wh
+  total_joule=\$(echo \"scale=6; (\$b - \$ENERGY_START)/1000000\" | bc)
+  wh_estimated=\$(echo \"scale=6; \$total_joule/3600\" | bc)
+
+  echo \"\$(date +'%H:%M:%S')  \$watts W\"
+  echo \"Estimated Energy Consumed: \$wh_estimated Wh\"
+done"
