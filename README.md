@@ -4,10 +4,10 @@ A simple **Bash-based CLI tool** to monitor the **CPU package power (in Watts)**
 
 ## Features
 
-- Displays a large **ASCII-Art banner** on startup: `CPU Wattage`  
-- Measures **CPU power in Watts** live using the `intel-rapl` interface  
+- Measures **CPU power in Watts** live using the `intel-rapl` interface
 - Configurable measurement interval  
-- Provides **accurate readings**, not estimates  
+- Provides **accurate readings**, not estimate
+- Additional displays **usage in Wh**, for easy calculations
 - Runs entirely in the terminal, **no GUI required**  
 
 ---
